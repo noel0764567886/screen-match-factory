@@ -1,6 +1,10 @@
-import { Home, Coffee, Monitor, Users, Search, MessageCircle, Instagram } from "lucide-react";
+import { Home, Coffee, Monitor, Users, Search, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-bedroom.jpg";
+import accommodation1 from "@/assets/accommodation-1.jpg";
+import accommodation2 from "@/assets/accommodation-2.jpg";
+import dining1 from "@/assets/dining-1.jpg";
+import dining2 from "@/assets/dining-2.jpg";
 
 const Index = () => {
   return (
@@ -24,7 +28,7 @@ const Index = () => {
       {/* Navigation */}
       <nav className="border-b">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center gap-8 py-3 text-sm">
+          <div className="flex items-center justify-center gap-4 md:gap-8 py-3 text-xs md:text-sm">
             <button className="hover:text-primary transition-colors">Accommodation</button>
             <span className="text-muted-foreground">|</span>
             <button className="hover:text-primary transition-colors">Dining</button>
@@ -37,14 +41,14 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-[500px] overflow-hidden">
+      <section className="relative h-[300px] md:h-[500px] overflow-hidden">
         <img 
           src={heroImage} 
           alt="Hotel bedroom interior" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-          <h1 className="text-white text-4xl md:text-5xl font-bold text-center px-4">
+          <h1 className="text-white text-2xl md:text-5xl font-bold text-center px-4">
             Social Spaces & Dining Spaces & Deluxe Beds
           </h1>
         </div>
@@ -80,24 +84,24 @@ const Index = () => {
           <h2 className="text-2xl font-bold text-center mb-12">Accommodation</h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground">Image</span>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <img src={accommodation1} alt="Luxury hotel bedroom in Tokyo" className="w-full h-full object-cover" />
             </div>
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground">Image</span>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <img src={accommodation2} alt="Hotel lounge area" className="w-full h-full object-cover" />
             </div>
           </div>
 
           {/* Reserve Section */}
-          <div className="bg-secondary py-8 px-6 rounded-lg max-w-4xl mx-auto">
-            <div className="flex items-center justify-between">
+          <div className="bg-secondary py-6 md:py-8 px-4 md:px-6 rounded-lg max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-4 md:justify-between">
               <div className="flex items-center gap-3">
-                <Search className="w-5 h-5" />
-                <span className="text-sm md:text-base">
+                <Search className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm md:text-base text-center md:text-left">
                   Reserve your room & enjoy the Tokyo vibe!
                 </span>
               </div>
-              <Button variant="outline" className="rounded-full">
+              <Button variant="outline" className="rounded-full whitespace-nowrap">
                 Availability
               </Button>
             </div>
@@ -116,24 +120,24 @@ const Index = () => {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground">Image</span>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <img src={dining1} alt="Authentic Japanese cuisine" className="w-full h-full object-cover" />
             </div>
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground">Image</span>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <img src={dining2} alt="Japanese restaurant interior" className="w-full h-full object-cover" />
             </div>
           </div>
 
           {/* Search Restaurants Section */}
-          <div className="bg-secondary py-8 px-6 rounded-lg max-w-4xl mx-auto">
-            <div className="flex items-center justify-between">
+          <div className="bg-secondary py-6 md:py-8 px-4 md:px-6 rounded-lg max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-4 md:justify-between">
               <div className="flex items-center gap-3">
-                <Search className="w-5 h-5" />
-                <span className="text-sm md:text-base">
+                <Search className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm md:text-base text-center md:text-left">
                   Search for Restaurants & Dining Offices
                 </span>
               </div>
-              <Button variant="outline" className="rounded-full">
+              <Button variant="outline" className="rounded-full whitespace-nowrap">
                 Availability
               </Button>
             </div>
@@ -144,20 +148,20 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 bg-muted">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex justify-center mb-6">
+          <a 
+            href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center mb-6 hover:opacity-80 transition-opacity"
+          >
             <Instagram className="w-12 h-12" />
-          </div>
+          </a>
           <div className="text-xs text-muted-foreground space-y-1">
             <div>Private Policy</div>
             <div>Accessibility Statement</div>
           </div>
         </div>
       </footer>
-
-      {/* Floating Chat Button */}
-      <button className="fixed bottom-8 right-8 w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-        <MessageCircle className="w-8 h-8 text-accent-foreground" />
-      </button>
     </div>
   );
 };
