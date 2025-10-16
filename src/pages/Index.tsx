@@ -1,5 +1,7 @@
 import { Home, Coffee, Monitor, Users, Search, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ReservationDialog } from "@/components/ReservationDialog";
+import { useState } from "react";
 import heroImage from "@/assets/hero-bedroom.jpg";
 import accommodation1 from "@/assets/accommodation-1.jpg";
 import accommodation2 from "@/assets/accommodation-2.jpg";
@@ -7,6 +9,7 @@ import dining1 from "@/assets/dining-1.jpg";
 import dining2 from "@/assets/dining-2.jpg";
 
 const Index = () => {
+  const [reservationOpen, setReservationOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -18,7 +21,11 @@ const Index = () => {
                 <div className="w-6 h-6 rounded-full border-2 border-primary-foreground" />
               </div>
             </div>
-            <Button variant="outline" className="rounded-full">
+            <Button 
+              variant="outline" 
+              className="rounded-full"
+              onClick={() => setReservationOpen(true)}
+            >
               Reserve
             </Button>
           </div>
@@ -162,6 +169,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <ReservationDialog open={reservationOpen} onOpenChange={setReservationOpen} />
     </div>
   );
 };
