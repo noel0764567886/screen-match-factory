@@ -1,4 +1,4 @@
-import { Home, Coffee, Monitor, Users, Search, Instagram } from "lucide-react";
+import { Home, Coffee, Monitor, Users, Search, Instagram, Globe, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReservationDialog } from "@/components/ReservationDialog";
 import { useState } from "react";
@@ -17,7 +17,13 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Globe className="w-5 h-5" />
+              </Button>
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <MapPin className="w-5 h-5" />
+              </Button>
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center ml-2">
                 <div className="w-6 h-6 rounded-full border-2 border-primary-foreground" />
               </div>
             </div>
