@@ -19,7 +19,7 @@ const Index = () => {
               </div>
             </div>
             <Button variant="outline" className="rounded-full">
-              Join Discord
+              Reserve
             </Button>
           </div>
         </div>
