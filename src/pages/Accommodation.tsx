@@ -40,7 +40,12 @@ const Accommodation = () => {
                 Accommodation
               </button>
               <span className="text-muted-foreground">|</span>
-              <button className="hover:text-primary transition-colors">Dining</button>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/dining")}
+              >
+                Dining
+              </button>
               <span className="text-muted-foreground">|</span>
               <button className="hover:text-primary transition-colors">Access</button>
               <span className="text-muted-foreground">|</span>

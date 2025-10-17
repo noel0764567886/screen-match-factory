@@ -42,7 +42,12 @@ const Index = () => {
                 Accommodation
               </button>
               <span className="text-muted-foreground">|</span>
-              <button className="hover:text-primary transition-colors">Dining</button>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/dining")}
+              >
+                Dining
+              </button>
               <span className="text-muted-foreground">|</span>
               <button className="hover:text-primary transition-colors">Access</button>
               <span className="text-muted-foreground">|</span>
@@ -85,7 +90,10 @@ const Index = () => {
               <Home className="w-12 h-12" />
               <span className="text-xs font-medium">ACCOMMODATION</span>
             </button>
-            <button className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow">
+            <button 
+              className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
+              onClick={() => navigate("/dining")}
+            >
               <Coffee className="w-12 h-12" />
               <span className="text-xs font-medium">DINING</span>
             </button>
