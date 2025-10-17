@@ -23,10 +23,18 @@ const Index = () => {
               <Button variant="ghost" size="icon" className="rounded-full">
                 <MapPin className="w-5 h-5" />
               </Button>
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center ml-2">
-                <div className="w-6 h-6 rounded-full border-2 border-primary-foreground" />
-              </div>
             </div>
+            
+            <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
+              <button className="hover:text-primary transition-colors">Accommodation</button>
+              <span className="text-muted-foreground">|</span>
+              <button className="hover:text-primary transition-colors">Dining</button>
+              <span className="text-muted-foreground">|</span>
+              <button className="hover:text-primary transition-colors">Access</button>
+              <span className="text-muted-foreground">|</span>
+              <button className="hover:text-primary transition-colors">About us</button>
+            </nav>
+            
             <Button 
               variant="outline" 
               className="rounded-full"
@@ -37,21 +45,6 @@ const Index = () => {
           </div>
         </div>
       </header>
-
-      {/* Navigation */}
-      <nav className="border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center gap-4 md:gap-8 py-3 text-xs md:text-sm">
-            <button className="hover:text-primary transition-colors">Accommodation</button>
-            <span className="text-muted-foreground">|</span>
-            <button className="hover:text-primary transition-colors">Dining</button>
-            <span className="text-muted-foreground">|</span>
-            <button className="hover:text-primary transition-colors">Access</button>
-            <span className="text-muted-foreground">|</span>
-            <button className="hover:text-primary transition-colors">About us</button>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="relative h-[300px] md:h-[500px] overflow-hidden">
