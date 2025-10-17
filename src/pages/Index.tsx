@@ -1,6 +1,7 @@
 import { Home, Coffee, Monitor, Users, Search, Instagram, Globe, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReservationDialog } from "@/components/ReservationDialog";
+import { LocationDialog } from "@/components/LocationDialog";
 import { useState } from "react";
 import heroImage from "@/assets/hero-bedroom.jpg";
 import accommodation1 from "@/assets/accommodation-1.jpg";
@@ -10,6 +11,7 @@ import dining2 from "@/assets/dining-2.jpg";
 
 const Index = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
+  const [locationOpen, setLocationOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -20,7 +22,12 @@ const Index = () => {
               <Button variant="ghost" size="icon" className="rounded-full">
                 <Globe className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="rounded-full"
+                onClick={() => setLocationOpen(true)}
+              >
                 <MapPin className="w-5 h-5" />
               </Button>
             </div>
@@ -178,6 +185,7 @@ const Index = () => {
       </footer>
 
       <ReservationDialog open={reservationOpen} onOpenChange={setReservationOpen} />
+      <LocationDialog open={locationOpen} onOpenChange={setLocationOpen} />
     </div>
   );
 };
