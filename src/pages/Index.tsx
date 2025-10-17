@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ReservationDialog } from "@/components/ReservationDialog";
 import { LocationDialog } from "@/components/LocationDialog";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-bedroom.jpg";
 import accommodation1 from "@/assets/accommodation-1.jpg";
 import accommodation2 from "@/assets/accommodation-2.jpg";
@@ -12,6 +13,7 @@ import dining2 from "@/assets/dining-2.jpg";
 const Index = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
   const [locationOpen, setLocationOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -33,7 +35,12 @@ const Index = () => {
             </div>
             
             <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
-              <button className="hover:text-primary transition-colors">Accommodation</button>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/accommodation")}
+              >
+                Accommodation
+              </button>
               <span className="text-muted-foreground">|</span>
               <button className="hover:text-primary transition-colors">Dining</button>
               <span className="text-muted-foreground">|</span>
@@ -71,7 +78,10 @@ const Index = () => {
       <section className="bg-secondary py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <button className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow">
+            <button 
+              className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
+              onClick={() => navigate("/accommodation")}
+            >
               <Home className="w-12 h-12" />
               <span className="text-xs font-medium">ACCOMMODATION</span>
             </button>
