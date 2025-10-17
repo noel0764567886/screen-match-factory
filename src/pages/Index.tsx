@@ -107,7 +107,11 @@ const Index = () => {
                   Reserve your room & enjoy the Tokyo vibe!
                 </span>
               </div>
-              <Button variant="outline" className="rounded-full whitespace-nowrap">
+              <Button 
+                variant="outline" 
+                className="rounded-full whitespace-nowrap"
+                onClick={() => setReservationOpen(true)}
+              >
                 Availability
               </Button>
             </div>
@@ -143,7 +147,11 @@ const Index = () => {
                   Search for Restaurants & Dining Offices
                 </span>
               </div>
-              <Button variant="outline" className="rounded-full whitespace-nowrap">
+              <Button 
+                variant="outline" 
+                className="rounded-full whitespace-nowrap"
+                onClick={() => setReservationOpen(true)}
+              >
                 Availability
               </Button>
             </div>
