@@ -4,6 +4,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 
 interface LocationDialogProps {
@@ -17,28 +18,45 @@ export function LocationDialog({ open, onOpenChange }: LocationDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] bg-background/95 backdrop-blur">
+      <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-center mb-6">
-            LOCATIONS
-          </DialogTitle>
+          <DialogTitle className="sr-only">Location</DialogTitle>
         </DialogHeader>
-        
-        <div className="flex items-start gap-4 py-8">
-          <div className="flex-shrink-0">
-            <div className="w-16 h-16 rounded-full bg-foreground flex items-center justify-center">
-              <MapPin className="w-8 h-8 text-background" />
-            </div>
+
+        <div className="space-y-6">
+          {/* Title */}
+          <div className="pb-4 border-b-4 border-pink-600">
+            <h2 className="text-3xl font-bold text-center">LOCATIONS</h2>
           </div>
-          
-          <a 
-            href={mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xl font-semibold hover:text-primary transition-colors text-center flex-1"
-          >
-            {address}
-          </a>
+
+          {/* Address with Icon */}
+          <div className="flex items-center gap-6 py-8 justify-center">
+            <div className="flex-shrink-0">
+              <div className="w-20 h-20 rounded-full bg-foreground flex items-center justify-center">
+                <MapPin className="w-10 h-10 text-background" />
+              </div>
+            </div>
+            
+            <a 
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl font-semibold hover:text-pink-600 transition-colors"
+            >
+              {address}
+            </a>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex justify-end gap-3 pt-4">
+            <Button
+              variant="ghost"
+              onClick={() => onOpenChange(false)}
+              className="text-pink-600 hover:text-pink-700"
+            >
+              Close
+            </Button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
