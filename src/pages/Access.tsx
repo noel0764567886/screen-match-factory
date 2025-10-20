@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Instagram, MapPin } from "lucide-react";
+import { Globe, Instagram, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ReservationDialog } from "@/components/ReservationDialog";
@@ -16,53 +16,58 @@ const Access = () => {
       <header className="border-b">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold">TV</span>
-                </div>
-                <span className="font-bold text-xl">Tokyo Vibes</span>
-              </div>
-              
-              <nav className="hidden md:flex gap-4">
-                <Button 
-                  variant="ghost" 
-                  onClick={() => navigate('/')}
-                >
-                  Home
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  onClick={() => navigate('/accommodation')}
-                >
-                  Accommodation
-                </Button>
-                <Button variant="ghost" onClick={() => navigate('/dining')}>
-                  Dining
-                </Button>
-                <Button variant="ghost" className="font-semibold">
-                  Access
-                </Button>
-                <Button variant="ghost">About us</Button>
-              </nav>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm">
-                Language
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Globe className="w-5 h-5" />
               </Button>
               <Button 
                 variant="ghost" 
-                size="sm"
+                size="icon" 
+                className="rounded-full"
                 onClick={() => setLocationOpen(true)}
               >
-                <MapPin className="w-4 h-4 mr-2" />
-                Map
-              </Button>
-              <Button onClick={() => setReservationOpen(true)}>
-                To Reserve
+                <MapPin className="w-5 h-5" />
               </Button>
             </div>
+            
+            <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/")}
+              >
+                Home
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/accommodation")}
+              >
+                Accommodation
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/dining")}
+              >
+                Dining
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button 
+                className="hover:text-primary transition-colors font-semibold"
+              >
+                Access
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button className="hover:text-primary transition-colors">About us</button>
+            </nav>
+            
+            <Button 
+              variant="outline" 
+              className="rounded-full"
+              onClick={() => setReservationOpen(true)}
+            >
+              Reserve
+            </Button>
           </div>
         </div>
       </header>
@@ -146,22 +151,19 @@ const Access = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-12 bg-muted/30">
-        <div className="container mx-auto px-4 text-center space-y-6">
+      <footer className="py-12 bg-muted">
+        <div className="container mx-auto px-4 text-center">
           <a 
-            href="https://www.instagram.com" 
-            target="_blank" 
+            href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
+            target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-col items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex justify-center mb-6 hover:opacity-80 transition-opacity"
           >
             <Instagram className="w-12 h-12" />
-            <span className="text-sm font-medium">Follow us on Instagram</span>
           </a>
-          
-          <div className="pt-4">
-            <Button variant="link" className="text-sm">
-              Private Policy
-            </Button>
+          <div className="text-xs text-muted-foreground space-y-1">
+            <div>Private Policy</div>
+            <div>Accessibility Statement</div>
           </div>
         </div>
       </footer>
