@@ -83,8 +83,12 @@ const Dining = () => {
 
       {/* Title Section */}
       <section className="py-12 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center">Dining</h1>
+        <div className="container mx-auto px-4 max-w-4xl text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl font-bold">Exclusive Pass (Dining)</h1>
+          <p className="text-sm md:text-base">
+            Eat as exclusively pass, just for you.<br />
+            Enjoy an authentic Japanese food experience through our series of curated listings
+          </p>
         </div>
       </section>
 
@@ -124,20 +128,40 @@ const Dining = () => {
             EXCLUSIVE OFFER JUST FOR TOKYO VIBES
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-background p-8 rounded-lg text-center space-y-4">
-              <h3 className="font-bold text-lg">Free drink with</h3>
-              <p className="text-sm">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-background p-6 rounded-lg text-center space-y-4">
+              <h3 className="font-bold text-base">Free drink with</h3>
+              <p className="text-xs">
                 all you can eat menu<br />
                 (under 600 yen)<br />
                 or 10% off individual dishes
               </p>
             </div>
             
-            <div className="bg-background p-8 rounded-lg text-center space-y-4">
-              <h3 className="font-bold text-lg">Chashu or Egg</h3>
-              <p className="text-sm">(One free topping)</p>
+            <div className="bg-background p-6 rounded-lg text-center space-y-4">
+              <h3 className="font-bold text-base">Chashu or Egg</h3>
+              <p className="text-xs">(One free topping)</p>
             </div>
+
+            <div className="bg-background p-6 rounded-lg text-center space-y-4">
+              <h3 className="font-bold text-base">Find me there</h3>
+              <p className="text-xs">(secret)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Order Card Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="bg-muted/50 rounded-lg p-8 text-center space-y-6">
+            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
+              <p className="text-sm text-muted-foreground">Order Card Preview</p>
+            </div>
+            <p className="text-sm italic">
+              "You will get this card when you order -<br />
+              please show this when you order to get the service"
+            </p>
           </div>
         </div>
       </section>
