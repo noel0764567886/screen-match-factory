@@ -58,7 +58,12 @@ const Access = () => {
                 Access
               </button>
               <span className="text-muted-foreground">|</span>
-              <button className="hover:text-primary transition-colors">About us</button>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/about")}
+              >
+                About us
+              </button>
             </nav>
             
             <Button 

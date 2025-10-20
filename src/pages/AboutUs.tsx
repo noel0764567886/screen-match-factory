@@ -1,0 +1,178 @@
+import { Button } from "@/components/ui/button";
+import { Globe, Instagram, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { ReservationDialog } from "@/components/ReservationDialog";
+import { LocationDialog } from "@/components/LocationDialog";
+
+const AboutUs = () => {
+  const [reservationOpen, setReservationOpen] = useState(false);
+  const [locationOpen, setLocationOpen] = useState(false);
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Globe className="w-5 h-5" />
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="rounded-full"
+                onClick={() => setLocationOpen(true)}
+              >
+                <MapPin className="w-5 h-5" />
+              </Button>
+            </div>
+            
+            <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/")}
+              >
+                Home
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/accommodation")}
+              >
+                Accommodation
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/dining")}
+              >
+                Dining
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/access")}
+              >
+                Access
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button className="hover:text-primary transition-colors font-semibold">About us</button>
+            </nav>
+            
+            <Button 
+              variant="outline" 
+              className="rounded-full"
+              onClick={() => setReservationOpen(true)}
+            >
+              Reserve
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Title Section */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold">About us</h1>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-12">
+            
+            {/* Mark Sasaki */}
+            <div className="space-y-4">
+              <div className="aspect-square rounded-lg overflow-hidden bg-muted">
+                <img 
+                  src="/placeholder.svg" 
+                  alt="Mark Sasaki"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="text-center space-y-3">
+                <div className="flex items-center justify-center gap-2">
+                  <h2 className="text-2xl font-bold">Mark Sasaki</h2>
+                  <a 
+                    href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity"
+                  >
+                    <Instagram className="w-6 h-6" />
+                  </a>
+                </div>
+                
+                <p className="text-sm leading-relaxed">
+                  Born and raised in Tokyo.<br />
+                  After studying abroad, he realized how meaningful it is to feel welcomed in a new place.<br />
+                  So, together with Yasuhiko, he created this Airbnb.<br />
+                  This Airbnb is part of my journey on social media, building a brand, sharing his story on social media.
+                </p>
+              </div>
+            </div>
+
+            {/* Yasuhiko Sasaki */}
+            <div className="space-y-4">
+              <div className="aspect-square rounded-lg overflow-hidden bg-muted">
+                <img 
+                  src="/placeholder.svg" 
+                  alt="Yasuhiko Sasaki"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <div className="text-center space-y-3">
+                <div className="flex items-center justify-center gap-2">
+                  <h2 className="text-2xl font-bold">Yasuhiko Sasaki</h2>
+                  <a 
+                    href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity"
+                  >
+                    <Instagram className="w-6 h-6" />
+                  </a>
+                </div>
+                
+                <p className="text-sm leading-relaxed">
+                  Born and raised in Tokyo. After studying abroad, he realized how meaningful it is to feel welcomed in a new place.<br />
+                  So, together with Mark, he created a stay where travelers can truly enjoy Tokyo. This Airbnb is part of my journey building a brand, sharing his story on social media.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 bg-muted">
+        <div className="container mx-auto px-4 text-center">
+          <a 
+            href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center mb-6 hover:opacity-80 transition-opacity"
+          >
+            <Instagram className="w-12 h-12" />
+          </a>
+          <div className="text-xs text-muted-foreground space-y-1">
+            <div>Private Policy</div>
+            <div>Accessibility Statement</div>
+          </div>
+        </div>
+      </footer>
+
+      <ReservationDialog open={reservationOpen} onOpenChange={setReservationOpen} />
+      <LocationDialog open={locationOpen} onOpenChange={setLocationOpen} />
+    </div>
+  );
+};
+
+export default AboutUs;
