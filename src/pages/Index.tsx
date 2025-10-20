@@ -36,6 +36,13 @@ const Index = () => {
             
             <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
               <button 
+                className="hover:text-primary transition-colors font-semibold"
+                onClick={() => navigate("/")}
+              >
+                Home
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/accommodation")}
               >
@@ -49,7 +56,12 @@ const Index = () => {
                 Dining
               </button>
               <span className="text-muted-foreground">|</span>
-              <button className="hover:text-primary transition-colors">Access</button>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/access")}
+              >
+                Access
+              </button>
               <span className="text-muted-foreground">|</span>
               <button className="hover:text-primary transition-colors">About us</button>
             </nav>
@@ -97,7 +109,10 @@ const Index = () => {
               <Coffee className="w-12 h-12" />
               <span className="text-xs font-medium">DINING</span>
             </button>
-            <button className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow">
+            <button 
+              className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
+              onClick={() => navigate("/access")}
+            >
               <Monitor className="w-12 h-12" />
               <span className="text-xs font-medium">ACCESS</span>
             </button>

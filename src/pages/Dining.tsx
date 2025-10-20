@@ -53,6 +53,13 @@ const Dining = () => {
             <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
               <button 
                 className="hover:text-primary transition-colors"
+                onClick={() => navigate("/")}
+              >
+                Home
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button 
+                className="hover:text-primary transition-colors"
                 onClick={() => navigate("/accommodation")}
               >
                 Accommodation
@@ -60,12 +67,16 @@ const Dining = () => {
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors font-semibold"
-                onClick={() => navigate("/dining")}
               >
                 Dining
               </button>
               <span className="text-muted-foreground">|</span>
-              <button className="hover:text-primary transition-colors">Access</button>
+              <button 
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/access")}
+              >
+                Access
+              </button>
               <span className="text-muted-foreground">|</span>
               <button className="hover:text-primary transition-colors">About us</button>
             </nav>
