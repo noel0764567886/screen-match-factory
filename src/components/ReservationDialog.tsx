@@ -2,11 +2,8 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Input } from "@/components/ui/input";
-import { CalendarIcon, Users, Ticket } from "lucide-react";
-import { format, differenceInDays } from "date-fns";
 import { cn } from "@/lib/utils";
+import heroImage from "@/assets/hero-bedroom.jpg";
 
 interface ReservationDialogProps {
   open: boolean;
@@ -16,167 +13,113 @@ interface ReservationDialogProps {
 export function ReservationDialog({ open, onOpenChange }: ReservationDialogProps) {
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
-  const [rooms, setRooms] = useState(1);
-  const [adults, setAdults] = useState(1);
-  const [promoCode, setPromoCode] = useState("");
-  const [showGuestPicker, setShowGuestPicker] = useState(false);
 
-  const nights = checkIn && checkOut ? differenceInDays(checkOut, checkIn) : 0;
+  const clearDates = () => {
+    setCheckIn(undefined);
+    setCheckOut(undefined);
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-5xl p-0 overflow-hidden bg-[#F5E6D3] border-8 border-[#8B7355] rounded-3xl">
         <DialogHeader>
           <DialogTitle className="sr-only">Reservation</DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-6">
-          {/* Top Bar */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-4 border-b-4 border-pink-600">
-            {/* Check-in / Check-out */}
-            <Popover>
-              <PopoverTrigger asChild>
+        <div className="relative p-8">
+          {/* Decorative border effect */}
+          <div className="absolute inset-0 pointer-events-none" 
+               style={{
+                 background: 'radial-gradient(circle at 0% 0%, rgba(139, 115, 85, 0.1) 0%, transparent 50%), radial-gradient(circle at 100% 0%, rgba(139, 115, 85, 0.1) 0%, transparent 50%), radial-gradient(circle at 0% 100%, rgba(139, 115, 85, 0.1) 0%, transparent 50%), radial-gradient(circle at 100% 100%, rgba(139, 115, 85, 0.1) 0%, transparent 50%)'
+               }}
+          />
+
+          {/* Header */}
+          <div className="flex items-start justify-between mb-6 relative">
+            <h2 className="text-3xl font-bold text-[#8B4513]">
+              Book Your Stay at <span className="block">Tokyo Vibes</span>
+            </h2>
+            <div className="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center text-white flex-shrink-0 ml-4 border-4 border-white shadow-lg">
+              <div className="text-center">
+                <div className="text-xs font-bold">東京</div>
+                <div className="text-lg font-bold">TOKYO</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="grid md:grid-cols-2 gap-6 bg-white rounded-2xl p-6 shadow-xl">
+            {/* Left Side - Calendar */}
+            <div className="space-y-4">
+              <Calendar
+                mode="range"
+                selected={{ from: checkIn, to: checkOut }}
+                onSelect={(range) => {
+                  setCheckIn(range?.from);
+                  setCheckOut(range?.to);
+                }}
+                numberOfMonths={1}
+                className={cn("pointer-events-auto w-full")}
+                classNames={{
+                  months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
+                  month: "space-y-4 w-full",
+                  caption: "flex justify-center pt-1 relative items-center",
+                  caption_label: "text-sm font-medium",
+                  nav: "space-x-1 flex items-center",
+                  nav_button: cn(
+                    "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
+                  ),
+                  table: "w-full border-collapse space-y-1",
+                  head_row: "flex justify-between w-full",
+                  head_cell: "text-muted-foreground rounded-md w-9 font-normal text-[0.8rem] flex-1 text-center",
+                  row: "flex w-full mt-2 justify-between",
+                  cell: "flex-1 text-center text-sm p-0 relative",
+                  day: cn(
+                    "h-9 w-9 p-0 font-normal mx-auto",
+                    "hover:bg-pink-100 hover:text-pink-900 rounded-md"
+                  ),
+                  day_selected: "bg-pink-600 text-white hover:bg-pink-700 hover:text-white rounded-md",
+                  day_today: "bg-accent text-accent-foreground",
+                  day_outside: "text-muted-foreground opacity-50",
+                  day_disabled: "text-muted-foreground opacity-50",
+                  day_range_middle: "bg-pink-100 text-pink-900 rounded-none",
+                }}
+              />
+              
+              <p className="text-center text-sm text-gray-600">
+                Select check-in and check-out dates
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex gap-3 pt-2">
                 <Button
                   variant="outline"
-                  className="justify-start text-left font-normal h-auto py-3"
+                  onClick={clearDates}
+                  className="flex-1 border-2 border-gray-400 hover:bg-gray-100"
                 >
-                  <CalendarIcon className="mr-2 h-5 w-5 text-pink-600 flex-shrink-0" />
-                  <div className="flex flex-col">
-                    <span className="text-sm">
-                      {checkIn ? format(checkIn, "MMMM dd") : "Check-in"} - {checkOut ? format(checkOut, "MMMM dd") : "Check-out"}
-                    </span>
-                  </div>
+                  Clear dates
                 </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <div className="p-4">
-                  <Calendar
-                    mode="range"
-                    selected={{ from: checkIn, to: checkOut }}
-                    onSelect={(range) => {
-                      setCheckIn(range?.from);
-                      setCheckOut(range?.to);
-                    }}
-                    numberOfMonths={2}
-                    initialFocus
-                    className="pointer-events-auto"
-                  />
-                </div>
-              </PopoverContent>
-            </Popover>
-
-            {/* Rooms & Guests */}
-            <Popover open={showGuestPicker} onOpenChange={setShowGuestPicker}>
-              <PopoverTrigger asChild>
                 <Button
-                  variant="outline"
-                  className="justify-start text-left font-normal h-auto py-3"
+                  onClick={() => {
+                    // Handle reservation
+                    onOpenChange(false);
+                  }}
+                  className="flex-1 bg-[#6B8E23] hover:bg-[#556B1C] text-white"
+                  disabled={!checkIn || !checkOut}
                 >
-                  <Users className="mr-2 h-5 w-5 text-pink-600 flex-shrink-0" />
-                  <span className="text-sm">
-                    {rooms} room{rooms > 1 ? "s" : ""}, {adults} adult{adults > 1 ? "s" : ""}
-                  </span>
+                  Book now
                 </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-64">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">Rooms</span>
-                    <div className="flex items-center gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setRooms(Math.max(1, rooms - 1))}
-                      >
-                        -
-                      </Button>
-                      <span className="w-8 text-center">{rooms}</span>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setRooms(rooms + 1)}
-                      >
-                        +
-                      </Button>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">Adults</span>
-                    <div className="flex items-center gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setAdults(Math.max(1, adults - 1))}
-                      >
-                        -
-                      </Button>
-                      <span className="w-8 text-center">{adults}</span>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setAdults(adults + 1)}
-                      >
-                        +
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
+              </div>
+            </div>
 
-            {/* Promo Code */}
-            <div className="flex items-center gap-2 px-3 py-2 border rounded-md">
-              <Ticket className="h-5 w-5 text-pink-600 flex-shrink-0" />
-              <Input
-                placeholder="Promo code"
-                value={promoCode}
-                onChange={(e) => setPromoCode(e.target.value)}
-                className="border-0 p-0 h-auto focus-visible:ring-0 focus-visible:ring-offset-0"
+            {/* Right Side - Room Image */}
+            <div className="relative rounded-xl overflow-hidden h-full min-h-[400px]">
+              <img 
+                src={heroImage} 
+                alt="Tokyo Vibes Room" 
+                className="w-full h-full object-cover"
               />
             </div>
-          </div>
-
-          {/* Nights Indicator */}
-          {nights > 0 && (
-            <div className="text-center">
-              <span className="text-pink-600 font-semibold text-lg">
-                {nights} night{nights > 1 ? "s" : ""}
-              </span>
-            </div>
-          )}
-
-          {/* Calendar View */}
-          <div className="flex justify-center">
-            <Calendar
-              mode="range"
-              selected={{ from: checkIn, to: checkOut }}
-              onSelect={(range) => {
-                setCheckIn(range?.from);
-                setCheckOut(range?.to);
-              }}
-              numberOfMonths={2}
-              className="pointer-events-auto"
-            />
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex justify-end gap-3 pt-4">
-            <Button
-              variant="ghost"
-              onClick={() => onOpenChange(false)}
-              className="text-pink-600 hover:text-pink-700"
-            >
-              Cancel
-            </Button>
-            <Button
-              className="bg-pink-600 hover:bg-pink-700 text-white px-8"
-              onClick={() => {
-                // Handle reservation
-                onOpenChange(false);
-              }}
-            >
-              APPLY
-            </Button>
           </div>
         </div>
       </DialogContent>
