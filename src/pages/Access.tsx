@@ -167,8 +167,20 @@ const Access = () => {
             <Instagram className="w-12 h-12" />
           </a>
           <div className="text-xs text-muted-foreground space-y-1">
-            <div>Private Policy</div>
-            <div>Accessibility Statement</div>
+            <button 
+              onClick={() => navigate("/privacy")}
+              className="hover:text-primary transition-colors"
+            >
+              Private Policy
+            </button>
+            <div>
+              <button 
+                onClick={() => navigate("/accessibility")}
+                className="hover:text-primary transition-colors"
+              >
+                Accessibility Statement
+              </button>
+            </div>
           </div>
         </div>
       </footer>
