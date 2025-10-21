@@ -2,8 +2,10 @@ import { Home, Coffee, Monitor, Users, Search, Instagram, Globe, MapPin } from "
 import { Button } from "@/components/ui/button";
 import { ReservationDialog } from "@/components/ReservationDialog";
 import { LocationDialog } from "@/components/LocationDialog";
+import LanguageDialog from "@/components/LanguageDialog";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-bedroom.jpg";
 import accommodation1 from "@/assets/accommodation-1.jpg";
 import accommodation2 from "@/assets/accommodation-2.jpg";
@@ -13,7 +15,9 @@ import dining2 from "@/assets/dining-2.jpg";
 const Index = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
   const [locationOpen, setLocationOpen] = useState(false);
+  const [languageOpen, setLanguageOpen] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -21,7 +25,12 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="rounded-full"
+                onClick={() => setLanguageOpen(true)}
+              >
                 <Globe className="w-5 h-5" />
               </Button>
               <Button 
@@ -39,35 +48,35 @@ const Index = () => {
                 className="hover:text-primary transition-colors font-semibold"
                 onClick={() => navigate("/")}
               >
-                Home
+                {t('nav.home')}
               </button>
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/accommodation")}
               >
-                Accommodation
+                {t('nav.accommodation')}
               </button>
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/dining")}
               >
-                Dining
+                {t('nav.dining')}
               </button>
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/access")}
               >
-                Access
+                {t('nav.access')}
               </button>
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/about")}
               >
-                About us
+                {t('nav.about')}
               </button>
             </nav>
             
@@ -76,7 +85,7 @@ const Index = () => {
               className="rounded-full"
               onClick={() => setReservationOpen(true)}
             >
-              Reserve
+              {t('home.reserve')}
             </Button>
           </div>
         </div>
@@ -91,7 +100,7 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
           <h1 className="text-white text-2xl md:text-5xl font-bold text-center px-4">
-            Social Spaces & Dining Spaces & Deluxe Beds
+            {t('home.hero_title')}
           </h1>
         </div>
       </section>
@@ -105,28 +114,28 @@ const Index = () => {
               onClick={() => navigate("/accommodation")}
             >
               <Home className="w-12 h-12" />
-              <span className="text-xs font-medium">ACCOMMODATION</span>
+              <span className="text-xs font-medium uppercase">{t('nav.accommodation')}</span>
             </button>
             <button 
               className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
               onClick={() => navigate("/dining")}
             >
               <Coffee className="w-12 h-12" />
-              <span className="text-xs font-medium">DINING</span>
+              <span className="text-xs font-medium uppercase">{t('nav.dining')}</span>
             </button>
             <button 
               className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
               onClick={() => navigate("/access")}
             >
               <Monitor className="w-12 h-12" />
-              <span className="text-xs font-medium">ACCESS</span>
+              <span className="text-xs font-medium uppercase">{t('nav.access')}</span>
             </button>
             <button 
               className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
               onClick={() => navigate("/access")}
             >
               <Users className="w-12 h-12" />
-              <span className="text-xs font-medium">ACCESS</span>
+              <span className="text-xs font-medium uppercase">{t('nav.access')}</span>
             </button>
           </div>
         </div>
@@ -135,7 +144,7 @@ const Index = () => {
       {/* Accommodation Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-12">Accommodation</h2>
+          <h2 className="text-2xl font-bold text-center mb-12">{t('nav.accommodation')}</h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
             <div className="aspect-video rounded-lg overflow-hidden">
@@ -152,7 +161,7 @@ const Index = () => {
               <div className="flex items-center gap-3">
                 <Search className="w-5 h-5 flex-shrink-0" />
                 <span className="text-sm md:text-base text-center md:text-left">
-                  Reserve your room & enjoy the Tokyo vibe!
+                  {t('home.welcome_text')}
                 </span>
               </div>
               <Button 
@@ -160,7 +169,7 @@ const Index = () => {
                 className="rounded-full whitespace-nowrap"
                 onClick={() => setReservationOpen(true)}
               >
-                Availability
+                {t('home.reserve')}
               </Button>
             </div>
           </div>
@@ -170,7 +179,7 @@ const Index = () => {
       {/* Dining Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-8">Dining</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">{t('nav.dining')}</h2>
           
           <p className="text-center max-w-2xl mx-auto mb-12">
             We partner with skilled Japanese restaurants.<br />
@@ -192,7 +201,7 @@ const Index = () => {
               <div className="flex items-center gap-3">
                 <Search className="w-5 h-5 flex-shrink-0" />
                 <span className="text-sm md:text-base text-center md:text-left">
-                  Search for Restaurants & Dining Offices
+                  {t('dining.description')}
                 </span>
               </div>
               <Button 
@@ -200,7 +209,7 @@ const Index = () => {
                 className="rounded-full whitespace-nowrap"
                 onClick={() => setReservationOpen(true)}
               >
-                Availability
+                {t('home.reserve')}
               </Button>
             </div>
           </div>
@@ -223,14 +232,14 @@ const Index = () => {
               onClick={() => navigate("/privacy")}
               className="hover:text-primary transition-colors"
             >
-              Private Policy
+              {t('footer.privacy')}
             </button>
             <div>
               <button 
                 onClick={() => navigate("/accessibility")}
                 className="hover:text-primary transition-colors"
               >
-                Accessibility Statement
+                {t('footer.accessibility')}
               </button>
             </div>
           </div>
@@ -239,6 +248,7 @@ const Index = () => {
 
       <ReservationDialog open={reservationOpen} onOpenChange={setReservationOpen} />
       <LocationDialog open={locationOpen} onOpenChange={setLocationOpen} />
+      <LanguageDialog open={languageOpen} onOpenChange={setLanguageOpen} />
     </div>
   );
 };

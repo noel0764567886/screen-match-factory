@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-bedroom.jpg";
 
 interface ReservationDialogProps {
@@ -13,6 +14,7 @@ interface ReservationDialogProps {
 export function ReservationDialog({ open, onOpenChange }: ReservationDialogProps) {
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
+  const { t } = useTranslation();
 
   const clearDates = () => {
     setCheckIn(undefined);
@@ -37,7 +39,7 @@ export function ReservationDialog({ open, onOpenChange }: ReservationDialogProps
           {/* Header */}
           <div className="flex items-start justify-between mb-6 relative">
             <h2 className="text-3xl font-bold text-[#8B4513]">
-              Book Your Stay at <span className="block">Tokyo Vibes</span>
+              {t('booking.title')}
             </h2>
             <div className="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center text-white flex-shrink-0 ml-4 border-4 border-white shadow-lg">
               <div className="text-center">
@@ -87,7 +89,7 @@ export function ReservationDialog({ open, onOpenChange }: ReservationDialogProps
               />
               
               <p className="text-center text-sm text-gray-600">
-                Select check-in and check-out dates
+                {t('booking.select_date')}
               </p>
 
               {/* Action Buttons */}
@@ -97,7 +99,7 @@ export function ReservationDialog({ open, onOpenChange }: ReservationDialogProps
                   onClick={clearDates}
                   className="flex-1 border-2 border-gray-400 hover:bg-gray-100"
                 >
-                  Clear dates
+                  {t('booking.clear_dates')}
                 </Button>
                 <Button
                   onClick={() => {
@@ -107,7 +109,7 @@ export function ReservationDialog({ open, onOpenChange }: ReservationDialogProps
                   className="flex-1 bg-[#6B8E23] hover:bg-[#556B1C] text-white"
                   disabled={!checkIn || !checkOut}
                 >
-                  Book now
+                  {t('booking.book_now')}
                 </Button>
               </div>
             </div>
