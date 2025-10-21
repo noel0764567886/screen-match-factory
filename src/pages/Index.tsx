@@ -121,9 +121,12 @@ const Index = () => {
               <Monitor className="w-12 h-12" />
               <span className="text-xs font-medium">ACCESS</span>
             </button>
-            <button className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow">
+            <button 
+              className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
+              onClick={() => navigate("/access")}
+            >
               <Users className="w-12 h-12" />
-              <span className="text-xs font-medium">OFFERS</span>
+              <span className="text-xs font-medium">ACCESS</span>
             </button>
           </div>
         </div>
