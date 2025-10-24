@@ -80,7 +80,7 @@ const Access = () => {
               className="rounded-full"
               onClick={() => setReservationOpen(true)}
             >
-              Reserve
+              {t('booking.reserve')}
             </Button>
           </div>
         </div>
@@ -89,7 +89,7 @@ const Access = () => {
       {/* Title Section */}
       <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold">Sightseeing Spots / Local Area Guide</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">{t('access_page.title')}</h1>
         </div>
       </section>
 
@@ -101,8 +101,8 @@ const Access = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Entertainment Center | 5 min drive</p>
-                <h2 className="text-3xl font-bold mt-2">Sunshine City</h2>
+                <p className="text-sm text-muted-foreground">{t('access_page.location_1_category')}</p>
+                <h2 className="text-3xl font-bold mt-2">{t('access_page.location_1_name')}</h2>
               </div>
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-primary-foreground" />
@@ -110,7 +110,7 @@ const Access = () => {
             </div>
             
             <Button variant="outline" size="sm">
-              For more information on Take.me, click here.
+              {t('access_page.location_1_button')}
             </Button>
 
             <div className="aspect-video bg-muted rounded-lg overflow-hidden">
@@ -122,9 +122,9 @@ const Access = () => {
             </div>
 
             <div className="bg-muted/50 p-6 rounded-lg">
-              <h3 className="font-bold mb-2">Concierge's Recommendation</h3>
+              <h3 className="font-bold mb-2">{t('access_page.location_1_recommendation')}</h3>
               <p className="text-sm">
-                Enjoy shopping, dining, and endless fun at Sunshine City
+                {t('access_page.location_1_desc')}
               </p>
             </div>
           </div>
@@ -133,8 +133,8 @@ const Access = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-muted-foreground">Entertainment Center | 5 min drive</p>
-                <h2 className="text-3xl font-bold mt-2">Animate Main Store</h2>
+                <p className="text-sm text-muted-foreground">{t('access_page.location_2_category')}</p>
+                <h2 className="text-3xl font-bold mt-2">{t('access_page.location_2_name')}</h2>
               </div>
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-primary-foreground" />
@@ -142,7 +142,7 @@ const Access = () => {
             </div>
             
             <Button variant="outline" size="sm">
-              For more information on Take.me, click here.
+              {t('access_page.location_2_button')}
             </Button>
 
             <div className="aspect-video bg-muted rounded-lg overflow-hidden">
@@ -154,9 +154,9 @@ const Access = () => {
             </div>
 
             <div className="bg-muted/50 p-6 rounded-lg">
-              <h3 className="font-bold mb-2">Concierge's Recommendation</h3>
+              <h3 className="font-bold mb-2">{t('access_page.location_2_recommendation')}</h3>
               <p className="text-sm">
-                Check for all the limited edition anime goods only available at this location.
+                {t('access_page.location_2_desc')}
               </p>
             </div>
           </div>

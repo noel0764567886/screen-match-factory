@@ -18,18 +18,18 @@ const Dining = () => {
 
   const restaurants = [
     {
-      name: "Yakiniku Kudaya",
-      description: "the quality of the food at this price point earns it an easy 5",
+      name: t('dining_page.restaurant_1_name'),
+      description: t('dining_page.restaurant_1_desc'),
       image: dining1,
     },
     {
-      name: "Tosabko Ramen",
-      description: "enjoy a tasty set menu here in this cosy little no nonsense ramen spot",
+      name: t('dining_page.restaurant_2_name'),
+      description: t('dining_page.restaurant_2_desc'),
       image: dining2,
     },
     {
-      name: "Sushi Tomohiro",
-      description: "sushi lovers, the best omakase in town just $50",
+      name: t('dining_page.restaurant_3_name'),
+      description: t('dining_page.restaurant_3_desc'),
       image: dining1,
     },
   ];
@@ -100,7 +100,7 @@ const Dining = () => {
               className="rounded-full"
               onClick={() => setReservationOpen(true)}
             >
-              Reserve
+              {t('booking.reserve')}
             </Button>
           </div>
         </div>
@@ -109,10 +109,10 @@ const Dining = () => {
       {/* Title Section */}
       <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl text-center space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold">Exclusive Pass (Dining)</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">{t('dining_page.title')}</h1>
           <p className="text-sm md:text-base">
-            Eat as exclusively pass, just for you.<br />
-            Enjoy an authentic Japanese food experience through our series of curated listings
+            {t('dining_page.subtitle')}<br />
+            {t('dining_page.description')}
           </p>
         </div>
       </section>
@@ -137,7 +137,7 @@ const Dining = () => {
                     variant="outline" 
                     className="rounded-full mt-2"
                   >
-                    HOW TO GO
+                    {t('dining_page.how_to_go')}
                   </Button>
                 </div>
               </div>
@@ -150,27 +150,23 @@ const Dining = () => {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl font-bold text-center mb-12">
-            EXCLUSIVE OFFER JUST FOR TOKYO VIBES
+            {t('dining_page.exclusive_offers_title')}
           </h2>
           
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-background p-6 rounded-lg text-center space-y-4">
-              <h3 className="font-bold text-base">Free drink with</h3>
-              <p className="text-xs">
-                all you can eat menu<br />
-                (under 600 yen)<br />
-                or 10% off individual dishes
-              </p>
+              <h3 className="font-bold text-base">{t('dining_page.offer_1_title')}</h3>
+              <p className="text-xs whitespace-pre-line">{t('dining_page.offer_1_desc')}</p>
             </div>
             
             <div className="bg-background p-6 rounded-lg text-center space-y-4">
-              <h3 className="font-bold text-base">Chashu or Egg</h3>
-              <p className="text-xs">(One free topping)</p>
+              <h3 className="font-bold text-base">{t('dining_page.offer_2_title')}</h3>
+              <p className="text-xs">{t('dining_page.offer_2_desc')}</p>
             </div>
 
             <div className="bg-background p-6 rounded-lg text-center space-y-4">
-              <h3 className="font-bold text-base">Find me there</h3>
-              <p className="text-xs">(secret)</p>
+              <h3 className="font-bold text-base">{t('dining_page.offer_3_title')}</h3>
+              <p className="text-xs">{t('dining_page.offer_3_desc')}</p>
             </div>
           </div>
         </div>
@@ -181,12 +177,9 @@ const Dining = () => {
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="bg-muted/50 rounded-lg p-8 text-center space-y-6">
             <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <p className="text-sm text-muted-foreground">Order Card Preview</p>
+              <p className="text-sm text-muted-foreground">{t('dining_page.order_card_preview')}</p>
             </div>
-            <p className="text-sm italic">
-              "You will get this card when you order -<br />
-              please show this when you order to get the service"
-            </p>
+            <p className="text-sm italic whitespace-pre-line">{t('dining_page.order_card_note')}</p>
           </div>
         </div>
       </section>

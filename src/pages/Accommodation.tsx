@@ -82,7 +82,7 @@ const Accommodation = () => {
               className="rounded-full"
               onClick={() => setReservationOpen(true)}
             >
-              Reserve
+              {t('booking.reserve')}
             </Button>
           </div>
         </div>
@@ -91,7 +91,7 @@ const Accommodation = () => {
       {/* Title Section */}
       <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-center">Accommodation</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-center">{t('accommodation_page.title')}</h1>
         </div>
       </section>
 
@@ -102,33 +102,33 @@ const Accommodation = () => {
             {/* Text Content */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold mb-2">Space Colony Tokyo</h2>
-                <p className="text-lg italic mb-4">Your Tokyo, Rewritten!</p>
-                <p className="font-semibold mb-2">~Stylish Stay in Tokyo | Anime & Culture Hub~</p>
+                <h2 className="text-2xl font-bold mb-2">{t('accommodation_page.space_colony_title')}</h2>
+                <p className="text-lg italic mb-4">{t('accommodation_page.space_colony_subtitle')}</p>
+                <p className="font-semibold mb-2">{t('accommodation_page.space_colony_tagline')}</p>
               </div>
 
               <p className="text-sm leading-relaxed">
-                Step into Space Colony Tokyo, a bold and futuristic apartment inspired by classic Japanese mecha anime. Located in Ikebukuro, one of Tokyo's major transport hubs, you'll enjoy easy access to Shinjuku, Shibuya, Akihabara, and beyond. Immerse yourself in Tokyo's vibrant culture with anime stores, arcades, shopping.
+                {t('accommodation_page.space_colony_desc1')}
               </p>
 
               <p className="text-sm leading-relaxed">
-                The interiors feature striking, tri-color walls and custom artwork, creating a unique space-colony atmosphere that's both bold and comfortable. Perfect for anime fans, design lovers, and travelers seeking a one-of-a-kind Tokyo experience.
+                {t('accommodation_page.space_colony_desc2')}
               </p>
 
               <div>
-                <h3 className="font-bold mb-2">Location:</h3>
+                <h3 className="font-bold mb-2">{t('accommodation_page.location_title')}</h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <span className="font-semibold">Ikebukuro - Tokyo's hidden gem:</span>
-                    <br />a major terminal station with direct access to airports, bullet trains, and top sightseeing spots.
+                    <span className="font-semibold">{t('accommodation_page.location_1_title')}</span>
+                    <br />{t('accommodation_page.location_1_desc')}
                   </li>
                   <li>
-                    <span className="font-semibold">Anime & pop-culture hotspot:</span>
-                    <br />home to Animate (Japan's largest Anime Center, Mega Tokyo, and T-World.
+                    <span className="font-semibold">{t('accommodation_page.location_2_title')}</span>
+                    <br />{t('accommodation_page.location_2_desc')}
                   </li>
                   <li>
-                    <span className="font-semibold">Vibrant dining & entertainment:</span>
-                    <br />endless options for food, shopping, and nightlife.
+                    <span className="font-semibold">{t('accommodation_page.location_3_title')}</span>
+                    <br />{t('accommodation_page.location_3_desc')}
                   </li>
                 </ul>
               </div>
@@ -157,21 +157,13 @@ const Accommodation = () => {
 
             {/* Text Content */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold">Room</h2>
+              <h2 className="text-2xl font-bold">{t('accommodation_page.room_title')}</h2>
               
               <ul className="space-y-3 text-sm list-disc pl-5">
-                <li>
-                  <span className="font-semibold">Unique design:</span> Interiors inspired by the colors and atmosphere of classic Japanese mecha anime.
-                </li>
-                <li>
-                  <span className="font-semibold">Space-colony theme:</span> Futuristic yet bold, immersive, yet comfortable.
-                </li>
-                <li>
-                  <span className="font-semibold">Fully equipped:</span> Wi-Fi, air conditioning, kitchen essentials, and cozy beds.
-                </li>
-                <li>
-                  <span className="font-semibold">In the heart of Tokyo's anime culture:</span> perfect for fans and travelers seeking a unique Tokyo experience.
-                </li>
+                <li>{t('accommodation_page.room_feature_1')}</li>
+                <li>{t('accommodation_page.room_feature_2')}</li>
+                <li>{t('accommodation_page.room_feature_3')}</li>
+                <li>{t('accommodation_page.room_feature_4')}</li>
               </ul>
             </div>
           </div>

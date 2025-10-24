@@ -76,7 +76,7 @@ const AboutUs = () => {
               className="rounded-full"
               onClick={() => setReservationOpen(true)}
             >
-              Reserve
+              {t('booking.reserve')}
             </Button>
           </div>
         </div>
@@ -85,7 +85,7 @@ const AboutUs = () => {
       {/* Title Section */}
       <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold">About us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">{t('about_page.title')}</h1>
         </div>
       </section>
 
@@ -106,7 +106,7 @@ const AboutUs = () => {
               
               <div className="text-center space-y-3">
                 <div className="flex items-center justify-center gap-2">
-                  <h2 className="text-2xl font-bold">Mark Sasaki</h2>
+                  <h2 className="text-2xl font-bold">{t('about_page.person_1_name')}</h2>
                   <a 
                     href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
                     target="_blank"
@@ -117,11 +117,8 @@ const AboutUs = () => {
                   </a>
                 </div>
                 
-                <p className="text-sm leading-relaxed">
-                  Born and raised in Tokyo.<br />
-                  After studying abroad, he realized how meaningful it is to feel welcomed in a new place.<br />
-                  So, together with Yasuhiko, he created this Airbnb.<br />
-                  This Airbnb is part of my journey on social media, building a brand, sharing his story on social media.
+                <p className="text-sm leading-relaxed whitespace-pre-line">
+                  {t('about_page.person_1_bio')}
                 </p>
               </div>
             </div>
@@ -138,7 +135,7 @@ const AboutUs = () => {
               
               <div className="text-center space-y-3">
                 <div className="flex items-center justify-center gap-2">
-                  <h2 className="text-2xl font-bold">Yasuhiko Sasaki</h2>
+                  <h2 className="text-2xl font-bold">{t('about_page.person_2_name')}</h2>
                   <a 
                     href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
                     target="_blank"
@@ -149,9 +146,8 @@ const AboutUs = () => {
                   </a>
                 </div>
                 
-                <p className="text-sm leading-relaxed">
-                  Born and raised in Tokyo. After studying abroad, he realized how meaningful it is to feel welcomed in a new place.<br />
-                  So, together with Mark, he created a stay where travelers can truly enjoy Tokyo. This Airbnb is part of my journey building a brand, sharing his story on social media.
+                <p className="text-sm leading-relaxed whitespace-pre-line">
+                  {t('about_page.person_2_bio')}
                 </p>
               </div>
             </div>
