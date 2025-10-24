@@ -4,11 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ReservationDialog } from "@/components/ReservationDialog";
 import { LocationDialog } from "@/components/LocationDialog";
+import LanguageDialog from "@/components/LanguageDialog";
+import { useTranslation } from "react-i18next";
 
 const Access = () => {
   const navigate = useNavigate();
   const [reservationOpen, setReservationOpen] = useState(false);
   const [locationOpen, setLocationOpen] = useState(false);
+  const [languageOpen, setLanguageOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -17,7 +21,12 @@ const Access = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="rounded-full"
+                onClick={() => setLanguageOpen(true)}
+              >
                 <Globe className="w-5 h-5" />
               </Button>
               <Button 
@@ -35,34 +44,34 @@ const Access = () => {
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/")}
               >
-                Home
+                {t('nav.home')}
               </button>
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/accommodation")}
               >
-                Accommodation
+                {t('nav.accommodation')}
               </button>
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/dining")}
               >
-                Dining
+                {t('nav.dining')}
               </button>
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors font-semibold"
               >
-                Access
+                {t('nav.access')}
               </button>
               <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/about")}
               >
-                About us
+                {t('nav.about')}
               </button>
             </nav>
             
@@ -187,6 +196,7 @@ const Access = () => {
 
       <ReservationDialog open={reservationOpen} onOpenChange={setReservationOpen} />
       <LocationDialog open={locationOpen} onOpenChange={setLocationOpen} />
+      <LanguageDialog open={languageOpen} onOpenChange={setLanguageOpen} />
     </div>
   );
 };
