@@ -18,13 +18,6 @@ export function LocationDialog({ open, onOpenChange }: LocationDialogProps) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl bg-[#c8c4bb] border border-gray-400 p-0 rounded-3xl overflow-hidden">
         <div className="relative p-8 space-y-6">
-          {/* Yellow pin top left */}
-          <div className="absolute left-8 top-8">
-            <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center shadow-md">
-              <MapPin className="w-5 h-5 text-white fill-white" />
-            </div>
-          </div>
-
           {/* Title */}
           <h2 className="text-4xl font-bold text-center text-black pt-2">LOCATIONS</h2>
 
