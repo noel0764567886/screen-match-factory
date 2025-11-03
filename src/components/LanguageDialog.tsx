@@ -25,14 +25,6 @@ const LanguageDialog = ({ open, onOpenChange }: LanguageDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px] bg-[#e8e4db] border-none p-8">
-        <button
-          onClick={() => onOpenChange(false)}
-          className="absolute right-6 top-6 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-        >
-          <X className="h-8 w-8" />
-          <span className="sr-only">Close</span>
-        </button>
-        
         <div className="grid grid-cols-2 gap-8 pt-4">
           {languages.map((language) => (
             <button

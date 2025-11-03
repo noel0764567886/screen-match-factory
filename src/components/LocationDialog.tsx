@@ -1,11 +1,9 @@
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
+import { MapPin, ArrowUp } from "lucide-react";
+import pharmacyImage from "@/assets/pharmacy-location.png";
 
 interface LocationDialogProps {
   open: boolean;
@@ -18,44 +16,47 @@ export function LocationDialog({ open, onOpenChange }: LocationDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
-        <DialogHeader>
-          <DialogTitle className="sr-only">Location</DialogTitle>
-        </DialogHeader>
-
+      <DialogContent className="max-w-2xl bg-[#e8e4db] border-none p-8">
         <div className="space-y-6">
-          {/* Title */}
-          <div className="pb-4 border-b-4 border-pink-600">
+          {/* Title with yellow pin */}
+          <div className="relative">
+            <div className="absolute left-4 top-0">
+              <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-black" />
+              </div>
+            </div>
             <h2 className="text-3xl font-bold text-center">LOCATIONS</h2>
           </div>
 
-          {/* Address with Icon */}
-          <div className="flex items-center gap-6 py-8 justify-center">
-            <div className="flex-shrink-0">
-              <div className="w-20 h-20 rounded-full bg-foreground flex items-center justify-center">
-                <MapPin className="w-10 h-10 text-background" />
-              </div>
+          {/* Address with black map pin */}
+          <div className="flex items-start gap-4 justify-center pt-4">
+            <div className="flex-shrink-0 pt-1">
+              <MapPin className="w-12 h-12 text-black" />
             </div>
             
             <a 
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl font-semibold hover:text-pink-600 transition-colors"
+              className="text-xl font-semibold hover:opacity-70 transition-opacity"
             >
               {address}
             </a>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex justify-end gap-3 pt-4">
-            <Button
-              variant="ghost"
-              onClick={() => onOpenChange(false)}
-              className="text-pink-600 hover:text-pink-700"
-            >
-              Close
-            </Button>
+          {/* Pharmacy Image */}
+          <div className="flex justify-center">
+            <img 
+              src={pharmacyImage} 
+              alt="Pharmacy location" 
+              className="w-full max-w-md rounded-lg"
+            />
+          </div>
+
+          {/* Direction text with arrow */}
+          <div className="flex items-center justify-center gap-2 text-lg font-semibold">
+            <ArrowUp className="w-5 h-5" />
+            <span>Right in front of this pharmacy</span>
           </div>
         </div>
       </DialogContent>
