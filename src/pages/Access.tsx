@@ -99,26 +99,27 @@ const Access = () => {
           
           {/* Sunshine City */}
           <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">{t('access_page.location_1_category')}</p>
-                <h2 className="text-3xl font-bold mt-2">{t('access_page.location_1_name')}</h2>
+            <div className="flex flex-col md:flex-row gap-6 items-stretch">
+              {/* Image - Half width */}
+              <div className="md:w-1/2 aspect-video bg-muted rounded-lg overflow-hidden">
+                <img 
+                  src="/placeholder.svg" 
+                  alt="Sunshine City"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-primary-foreground" />
-              </div>
-            </div>
-            
-            <Button variant="outline" size="sm">
-              {t('access_page.location_1_button')}
-            </Button>
 
-            <div className="aspect-video bg-muted rounded-lg overflow-hidden">
-              <img 
-                src="/placeholder.svg" 
-                alt="Sunshine City"
-                className="w-full h-full object-cover"
-              />
+              {/* Info - Half width */}
+              <div className="md:w-1/2 flex flex-col justify-between space-y-4">
+                <div>
+                  <p className="text-sm text-muted-foreground">{t('access_page.location_1_category')}</p>
+                  <h2 className="text-3xl font-bold mt-2">{t('access_page.location_1_name')}</h2>
+                </div>
+                
+                <Button variant="outline" size="sm" className="self-start">
+                  {t('access_page.location_1_button')}
+                </Button>
+              </div>
             </div>
 
             <div className="bg-muted/50 p-6 rounded-lg">
@@ -131,26 +132,27 @@ const Access = () => {
 
           {/* Animate Main Store */}
           <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">{t('access_page.location_2_category')}</p>
-                <h2 className="text-3xl font-bold mt-2">{t('access_page.location_2_name')}</h2>
+            <div className="flex flex-col md:flex-row gap-6 items-stretch">
+              {/* Image - Half width */}
+              <div className="md:w-1/2 aspect-video bg-muted rounded-lg overflow-hidden">
+                <img 
+                  src="/placeholder.svg" 
+                  alt="Animate Main Store"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-primary-foreground" />
-              </div>
-            </div>
-            
-            <Button variant="outline" size="sm">
-              {t('access_page.location_2_button')}
-            </Button>
 
-            <div className="aspect-video bg-muted rounded-lg overflow-hidden">
-              <img 
-                src="/placeholder.svg" 
-                alt="Animate Main Store"
-                className="w-full h-full object-cover"
-              />
+              {/* Info - Half width */}
+              <div className="md:w-1/2 flex flex-col justify-between space-y-4">
+                <div>
+                  <p className="text-sm text-muted-foreground">{t('access_page.location_2_category')}</p>
+                  <h2 className="text-3xl font-bold mt-2">{t('access_page.location_2_name')}</h2>
+                </div>
+                
+                <Button variant="outline" size="sm" className="self-start">
+                  {t('access_page.location_2_button')}
+                </Button>
+              </div>
             </div>
 
             <div className="bg-muted/50 p-6 rounded-lg">
