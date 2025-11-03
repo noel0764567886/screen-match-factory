@@ -16,45 +16,47 @@ export function LocationDialog({ open, onOpenChange }: LocationDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl bg-[#e8e4db] border-none p-8">
-        <div className="space-y-6">
-          {/* Title with yellow pin */}
-          <div className="relative">
-            <div className="absolute left-4 top-0">
-              <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-black" />
-              </div>
+      <DialogContent className="max-w-2xl bg-[#c8c4bb] border border-gray-400 p-0 rounded-3xl overflow-hidden">
+        <div className="relative p-8 space-y-6">
+          {/* Yellow pin top left */}
+          <div className="absolute left-8 top-8">
+            <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center shadow-md">
+              <MapPin className="w-5 h-5 text-white fill-white" />
             </div>
-            <h2 className="text-3xl font-bold text-center">LOCATIONS</h2>
           </div>
 
+          {/* Title */}
+          <h2 className="text-4xl font-bold text-center text-black pt-2">LOCATIONS</h2>
+
           {/* Address with black map pin */}
-          <div className="flex items-start gap-4 justify-center pt-4">
-            <div className="flex-shrink-0 pt-1">
-              <MapPin className="w-12 h-12 text-black" />
+          <div className="flex items-start gap-3 justify-center pt-2">
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-white" />
+              </div>
             </div>
             
             <a 
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl font-semibold hover:opacity-70 transition-opacity"
+              className="text-lg font-bold hover:opacity-70 transition-opacity text-black pt-2"
             >
               {address}
             </a>
           </div>
 
           {/* Pharmacy Image */}
-          <div className="flex justify-center">
+          <div className="flex justify-center px-8">
             <img 
               src={pharmacyImage} 
               alt="Pharmacy location" 
-              className="w-full max-w-md rounded-lg"
+              className="w-full max-w-sm rounded-lg"
             />
           </div>
 
           {/* Direction text with arrow */}
-          <div className="flex items-center justify-center gap-2 text-lg font-semibold">
+          <div className="flex items-center justify-center gap-2 text-lg font-bold text-black pb-2">
             <ArrowUp className="w-5 h-5" />
             <span>Right in front of this pharmacy</span>
           </div>
