@@ -103,7 +103,7 @@ export function ReservationDialog({ open, onOpenChange }: ReservationDialogProps
                 </Button>
                 <Button
                   onClick={() => {
-                    window.open('https://www.airbnb.jp/rooms/1533120339075986420?source_impression_id=p3_1762416503_P3mFyFRAjKPmDB30', '_blank');
+                    window.open('https://www.airbnb.com/l/tvVs6Es0', '_blank');
                     onOpenChange(false);
                   }}
                   className="flex-1 bg-[#6B8E23] hover:bg-[#556B1C] text-white"
