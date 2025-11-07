@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import dining1 from "@/assets/dining-1.jpg";
-import dining2 from "@/assets/dining-2.jpg";
+import dining2 from "@/assets/dining-2.webp";
 
 const Dining = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
