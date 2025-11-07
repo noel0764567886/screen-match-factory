@@ -10,7 +10,7 @@ import heroImage from "@/assets/hero-bedroom.jpg";
 import accommodation1 from "@/assets/accommodation-1.jpg";
 import accommodation2 from "@/assets/accommodation-2.jpg";
 import dining1 from "@/assets/dining-1.jpg";
-import dining2 from "@/assets/dining-2.jpg";
+import dining2 from "@/assets/dining-2.webp";
 
 const Index = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
