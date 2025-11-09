@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-bedroom.jpg";
 import accommodation1 from "@/assets/accommodation-1.jpg";
-import accommodation2 from "@/assets/accommodation-2.jpg";
+import accommodation2 from "@/assets/accommodation-homepage-2.jpg";
 import dining1 from "@/assets/dining-1.jpg";
 import dining2 from "@/assets/dining-2.webp";
 
