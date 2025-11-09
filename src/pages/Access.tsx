@@ -6,6 +6,8 @@ import { ReservationDialog } from "@/components/ReservationDialog";
 import { LocationDialog } from "@/components/LocationDialog";
 import LanguageDialog from "@/components/LanguageDialog";
 import { useTranslation } from "react-i18next";
+import sunshineCity from "@/assets/sunshine-city.webp";
+import animateStore from "@/assets/animate-store.jpg";
 
 const Access = () => {
   const navigate = useNavigate();
@@ -103,7 +105,7 @@ const Access = () => {
               {/* Image - Half width */}
               <div className="md:w-1/2 aspect-video bg-muted rounded-lg overflow-hidden">
                 <img 
-                  src="/placeholder.svg" 
+                  src={sunshineCity} 
                   alt="Sunshine City"
                   className="w-full h-full object-cover"
                 />
@@ -116,7 +118,12 @@ const Access = () => {
                   <h2 className="text-3xl font-bold mt-2">{t('access_page.location_1_name')}</h2>
                 </div>
                 
-                <Button variant="outline" size="sm" className="self-start">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="self-start"
+                  onClick={() => window.open('https://sunshinecity.jp/en/', '_blank')}
+                >
                   {t('access_page.location_1_button')}
                 </Button>
               </div>
@@ -136,7 +143,7 @@ const Access = () => {
               {/* Image - Half width */}
               <div className="md:w-1/2 aspect-video bg-muted rounded-lg overflow-hidden">
                 <img 
-                  src="/placeholder.svg" 
+                  src={animateStore} 
                   alt="Animate Main Store"
                   className="w-full h-full object-cover"
                 />
@@ -149,7 +156,12 @@ const Access = () => {
                   <h2 className="text-3xl font-bold mt-2">{t('access_page.location_2_name')}</h2>
                 </div>
                 
-                <Button variant="outline" size="sm" className="self-start">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="self-start"
+                  onClick={() => window.open('https://www.animate.co.jp/en/shop/ikebukuro/', '_blank')}
+                >
                   {t('access_page.location_2_button')}
                 </Button>
               </div>
