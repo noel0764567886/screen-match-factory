@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import diningPage1 from "@/assets/dining-page-1.jpg";
 import diningPage2 from "@/assets/dining-page-2.jpg";
 import diningPage3 from "@/assets/dining-page-3.png";
+import exclusivePass from "@/assets/exclusive-pass.png";
 
 const Dining = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
@@ -181,8 +182,12 @@ const Dining = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="bg-muted/50 rounded-lg p-8 text-center space-y-6">
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <p className="text-sm text-muted-foreground">{t('dining_page.order_card_preview')}</p>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={exclusivePass} 
+                alt="Exclusive Pass Card" 
+                className="w-full h-auto"
+              />
             </div>
             <p className="text-sm italic whitespace-pre-line">{t('dining_page.order_card_note')}</p>
           </div>
