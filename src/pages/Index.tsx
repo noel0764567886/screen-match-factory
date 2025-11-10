@@ -47,23 +47,19 @@ const Index = () => {
             </div>
             
             {/* Logo */}
-            <div className="absolute left-1/2 transform -translate-x-1/2">
+            <button 
+              className="absolute left-1/2 transform -translate-x-1/2 hover:opacity-80 transition-opacity"
+              onClick={() => navigate("/")}
+            >
               <img 
                 src={tokyoVibesLogo} 
                 alt="Tokyo Vibes Logo" 
                 className="h-12 w-auto"
               />
-            </div>
+            </button>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
-              <button 
-                className="hover:text-primary transition-colors font-semibold"
-                onClick={() => navigate("/")}
-              >
-                {t('nav.home')}
-              </button>
-              <span className="text-muted-foreground">|</span>
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/accommodation")}
@@ -106,15 +102,6 @@ const Index = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[250px] sm:w-[300px]">
                 <nav className="flex flex-col gap-6 mt-8">
-                  <button 
-                    className="text-left hover:text-primary transition-colors font-semibold text-lg"
-                    onClick={() => {
-                      navigate("/");
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    {t('nav.home')}
-                  </button>
                   <button 
                     className="text-left hover:text-primary transition-colors text-lg"
                     onClick={() => {

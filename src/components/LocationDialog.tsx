@@ -4,7 +4,6 @@ import {
 } from "@/components/ui/dialog";
 import { MapPin, ArrowUp } from "lucide-react";
 import pharmacyImage from "@/assets/pharmacy-location.jpg";
-import tokyoVibesLogo from "@/assets/tokyo-vibes-logo.png";
 
 interface LocationDialogProps {
   open: boolean;
@@ -19,17 +18,8 @@ export function LocationDialog({ open, onOpenChange }: LocationDialogProps) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl bg-[#c8c4bb] border border-gray-400 p-0 rounded-3xl overflow-hidden">
         <div className="relative p-8 space-y-6">
-          {/* Logo */}
-          <div className="flex justify-center pt-2">
-            <img 
-              src={tokyoVibesLogo} 
-              alt="Tokyo Vibes Logo" 
-              className="h-20 w-auto"
-            />
-          </div>
-          
           {/* Title */}
-          <h2 className="text-4xl font-bold text-center text-black">LOCATIONS</h2>
+          <h2 className="text-4xl font-bold text-center text-black pt-2">LOCATIONS</h2>
 
           {/* Address with black map pin */}
           <div className="flex items-start gap-3 justify-center pt-2">
