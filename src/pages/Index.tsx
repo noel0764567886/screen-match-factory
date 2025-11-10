@@ -1,8 +1,9 @@
-import { Home, Coffee, Monitor, Users, Search, Instagram, Globe, MapPin } from "lucide-react";
+import { Home, Coffee, Monitor, Users, Search, Instagram, Globe, MapPin, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ReservationDialog } from "@/components/ReservationDialog";
 import { LocationDialog } from "@/components/LocationDialog";
 import LanguageDialog from "@/components/LanguageDialog";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -16,6 +17,7 @@ const Index = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
   const [locationOpen, setLocationOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
   return (
@@ -43,6 +45,7 @@ const Index = () => {
               </Button>
             </div>
             
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
               <button 
                 className="hover:text-primary transition-colors font-semibold"
@@ -79,10 +82,83 @@ const Index = () => {
                 {t('nav.about')}
               </button>
             </nav>
+
+            {/* Mobile Menu */}
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="md:hidden rounded-full"
+                >
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[250px] sm:w-[300px]">
+                <nav className="flex flex-col gap-6 mt-8">
+                  <button 
+                    className="text-left hover:text-primary transition-colors font-semibold text-lg"
+                    onClick={() => {
+                      navigate("/");
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    {t('nav.home')}
+                  </button>
+                  <button 
+                    className="text-left hover:text-primary transition-colors text-lg"
+                    onClick={() => {
+                      navigate("/accommodation");
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    {t('nav.accommodation')}
+                  </button>
+                  <button 
+                    className="text-left hover:text-primary transition-colors text-lg"
+                    onClick={() => {
+                      navigate("/dining");
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    {t('nav.dining')}
+                  </button>
+                  <button 
+                    className="text-left hover:text-primary transition-colors text-lg"
+                    onClick={() => {
+                      navigate("/access");
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    {t('nav.access')}
+                  </button>
+                  <button 
+                    className="text-left hover:text-primary transition-colors text-lg"
+                    onClick={() => {
+                      navigate("/about");
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    {t('nav.about')}
+                  </button>
+                  <Button 
+                    variant="outline" 
+                    className="rounded-full mt-4"
+                    onClick={() => {
+                      setReservationOpen(true);
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    {t('home.reserve')}
+                  </Button>
+                </nav>
+              </SheetContent>
+            </Sheet>
             
+            {/* Desktop Reserve Button */}
             <Button 
               variant="outline" 
-              className="rounded-full"
+              className="hidden md:flex rounded-full"
               onClick={() => setReservationOpen(true)}
             >
               {t('home.reserve')}
