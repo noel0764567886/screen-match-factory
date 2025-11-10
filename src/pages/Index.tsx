@@ -12,6 +12,7 @@ import accommodation1 from "@/assets/accommodation-1.jpg";
 import accommodation2 from "@/assets/accommodation-homepage-2.jpg";
 import dining1 from "@/assets/dining-1.jpg";
 import dining2 from "@/assets/dining-2.webp";
+import tokyoVibesLogo from "@/assets/tokyo-vibes-logo.png";
 
 const Index = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
@@ -43,6 +44,15 @@ const Index = () => {
               >
                 <MapPin className="w-5 h-5" />
               </Button>
+            </div>
+            
+            {/* Logo */}
+            <div className="absolute left-1/2 transform -translate-x-1/2">
+              <img 
+                src={tokyoVibesLogo} 
+                alt="Tokyo Vibes Logo" 
+                className="h-12 w-auto"
+              />
             </div>
             
             {/* Desktop Navigation */}
