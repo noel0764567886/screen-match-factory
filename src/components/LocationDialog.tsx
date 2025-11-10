@@ -3,7 +3,7 @@ import {
   DialogContent,
 } from "@/components/ui/dialog";
 import { MapPin, ArrowUp } from "lucide-react";
-import pharmacyImage from "@/assets/pharmacy-location.png";
+import pharmacyImage from "@/assets/pharmacy-location.jpg";
 
 interface LocationDialogProps {
   open: boolean;
