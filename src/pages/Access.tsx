@@ -8,6 +8,7 @@ import LanguageDialog from "@/components/LanguageDialog";
 import { useTranslation } from "react-i18next";
 import sunshineCity from "@/assets/sunshine-city.webp";
 import animateStore from "@/assets/animate-store.jpg";
+import tokyoVibesLogo from "@/assets/tokyo-vibes-logo.png"; // <-- Logo import
 
 const Access = () => {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Access = () => {
       <header className="border-b">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
+            {/* Left Side Icons */}
             <div className="flex items-center gap-2">
               <Button 
                 variant="ghost" 
@@ -31,6 +33,7 @@ const Access = () => {
               >
                 <Globe className="w-5 h-5" />
               </Button>
+
               <Button 
                 variant="ghost" 
                 size="icon" 
@@ -40,35 +43,50 @@ const Access = () => {
                 <MapPin className="w-5 h-5" />
               </Button>
             </div>
-            
-            <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
-              <button 
-                className="hover:text-primary transition-colors"
-                onClick={() => navigate("/")}
-              >
-                {t('nav.home')}
-              </button>
-              <span className="text-muted-foreground">|</span>
-              <button 
-                className="hover:text-primary transition-colors"
-                onClick={() => navigate("/accommodation")}
-              >
+
+            {/* NEW HEADER NAVIGATION */}
+            <nav className="hidden md:flex items-center gap-6 text-xs md:text-sm">
+
+              <button className="hover:text-primary transition-colors">
                 {t('nav.accommodation')}
               </button>
+
               <span className="text-muted-foreground">|</span>
+
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/dining")}
               >
                 {t('nav.dining')}
               </button>
-              <span className="text-muted-foreground">|</span>
+
+              {/* LOGO BLOCK */}
+              <div className="flex items-center gap-4 mx-4">
+                <span className="text-muted-foreground">|</span>
+
+                <button 
+                  className="hover:opacity-80 transition-opacity"
+                  onClick={() => navigate("/")}
+                >
+                  <img 
+                    src={tokyoVibesLogo}
+                    alt="Tokyo Vibes Logo"
+                    className="h-10 w-auto"
+                  />
+                </button>
+
+                <span className="text-muted-foreground">|</span>
+              </div>
+
               <button 
-                className="hover:text-primary transition-colors font-semibold"
+                className="hover:text-primary transition-colors"
+                onClick={() => navigate("/access")}
               >
                 {t('nav.access')}
               </button>
+
               <span className="text-muted-foreground">|</span>
+
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/about")}
@@ -76,7 +94,8 @@ const Access = () => {
                 {t('nav.about')}
               </button>
             </nav>
-            
+
+            {/* Reservation Button */}
             <Button 
               variant="outline" 
               className="rounded-full"
@@ -102,7 +121,6 @@ const Access = () => {
           {/* Sunshine City */}
           <div className="space-y-4">
             <div className="flex flex-col md:flex-row gap-6 items-stretch">
-              {/* Image - Half width */}
               <div className="md:w-1/2 aspect-video bg-muted rounded-lg overflow-hidden">
                 <img 
                   src={sunshineCity} 
@@ -111,7 +129,6 @@ const Access = () => {
                 />
               </div>
 
-              {/* Info - Half width */}
               <div className="md:w-1/2 flex flex-col justify-between space-y-4">
                 <div>
                   <p className="text-sm text-muted-foreground">{t('access_page.location_1_category')}</p>
@@ -140,7 +157,6 @@ const Access = () => {
           {/* Animate Main Store */}
           <div className="space-y-4">
             <div className="flex flex-col md:flex-row gap-6 items-stretch">
-              {/* Image - Half width */}
               <div className="md:w-1/2 aspect-video bg-muted rounded-lg overflow-hidden">
                 <img 
                   src={animateStore} 
@@ -149,7 +165,6 @@ const Access = () => {
                 />
               </div>
 
-              {/* Info - Half width */}
               <div className="md:w-1/2 flex flex-col justify-between space-y-4">
                 <div>
                   <p className="text-sm text-muted-foreground">{t('access_page.location_2_category')}</p>

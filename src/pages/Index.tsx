@@ -1,18 +1,29 @@
-import { Home, Coffee, Monitor, Users, Search, Instagram, Globe, MapPin, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ReservationDialog } from "@/components/ReservationDialog";
-import { LocationDialog } from "@/components/LocationDialog";
-import LanguageDialog from "@/components/LanguageDialog";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import heroImage from "@/assets/hero-bedroom.jpg";
-import accommodation1 from "@/assets/accommodation-1.jpg";
-import accommodation2 from "@/assets/accommodation-homepage-2.jpg";
-import dining1 from "@/assets/dining-1.jpg";
-import dining2 from "@/assets/dining-2.webp";
-import tokyoVibesLogo from "@/assets/tokyo-vibes-logo.png";
+import {
+  Home,
+  Coffee,
+  Monitor,
+  Users,
+  Search,
+  Instagram,
+  Globe,
+  MapPin,
+  Menu,
+  X,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ReservationDialog } from '@/components/ReservationDialog';
+import { LocationDialog } from '@/components/LocationDialog';
+import LanguageDialog from '@/components/LanguageDialog';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import heroImage from '@/assets/hero-bedroom.jpg';
+import accommodation1 from '@/assets/accommodation-1.jpg';
+import accommodation2 from '@/assets/accommodation-homepage-2.jpg';
+import dining1 from '@/assets/dining-1.jpg';
+import dining2 from '@/assets/dining-2.webp';
+import tokyoVibesLogo from '@/assets/tokyo-vibes-logo.png';
 
 const Index = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
@@ -28,62 +39,75 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="rounded-full"
                 onClick={() => setLanguageOpen(true)}
               >
                 <Globe className="w-5 h-5" />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="rounded-full"
                 onClick={() => setLocationOpen(true)}
               >
                 <MapPin className="w-5 h-5" />
               </Button>
             </div>
-            
-            {/* Logo */}
-            <button 
-              className="absolute left-1/2 transform -translate-x-1/2 hover:opacity-80 transition-opacity"
-              onClick={() => navigate("/")}
-            >
-              <img 
-                src={tokyoVibesLogo} 
-                alt="Tokyo Vibes Logo" 
-                className="h-12 w-auto"
-              />
-            </button>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
-              <button 
+
+            {/* Desktop Navigation mit Logo */}
+            <nav className="hidden md:flex items-center gap-6 text-xs md:text-sm">
+              <button
                 className="hover:text-primary transition-colors"
-                onClick={() => navigate("/accommodation")}
+                onClick={() => navigate('/accommodation')}
               >
                 {t('nav.accommodation')}
               </button>
+
+              {/* Strich */}
               <span className="text-muted-foreground">|</span>
-              <button 
+
+              <button
                 className="hover:text-primary transition-colors"
-                onClick={() => navigate("/dining")}
+                onClick={() => navigate('/dining')}
               >
                 {t('nav.dining')}
               </button>
-              <span className="text-muted-foreground">|</span>
-              <button 
+
+              {/* ----- ZENTRIERTES LOGO MIT STRICH LINKS/RECHTS ----- */}
+              <div className="flex items-center gap-4 mx-4">
+                <span className="text-muted-foreground">|</span>
+
+                <button
+                  className="hover:opacity-80 transition-opacity"
+                  onClick={() => navigate('/')}
+                >
+                  <img
+                    src={tokyoVibesLogo}
+                    alt="Tokyo Vibes Logo"
+                    className="h-10 w-auto"
+                  />
+                </button>
+
+                <span className="text-muted-foreground">|</span>
+              </div>
+              {/* --------------------------------------------------- */}
+
+              <button
                 className="hover:text-primary transition-colors"
-                onClick={() => navigate("/access")}
+                onClick={() => navigate('/access')}
               >
                 {t('nav.access')}
               </button>
+
+              {/* Strich */}
               <span className="text-muted-foreground">|</span>
-              <button 
+
+              <button
                 className="hover:text-primary transition-colors"
-                onClick={() => navigate("/about")}
+                onClick={() => navigate('/about')}
               >
                 {t('nav.about')}
               </button>
@@ -92,9 +116,9 @@ const Index = () => {
             {/* Mobile Menu */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
+                <Button
+                  variant="ghost"
+                  size="icon"
                   className="md:hidden rounded-full"
                 >
                   <Menu className="w-5 h-5" />
@@ -102,44 +126,44 @@ const Index = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[250px] sm:w-[300px]">
                 <nav className="flex flex-col gap-6 mt-8">
-                  <button 
+                  <button
                     className="text-left hover:text-primary transition-colors text-lg"
                     onClick={() => {
-                      navigate("/accommodation");
+                      navigate('/accommodation');
                       setMobileMenuOpen(false);
                     }}
                   >
                     {t('nav.accommodation')}
                   </button>
-                  <button 
+                  <button
                     className="text-left hover:text-primary transition-colors text-lg"
                     onClick={() => {
-                      navigate("/dining");
+                      navigate('/dining');
                       setMobileMenuOpen(false);
                     }}
                   >
                     {t('nav.dining')}
                   </button>
-                  <button 
+                  <button
                     className="text-left hover:text-primary transition-colors text-lg"
                     onClick={() => {
-                      navigate("/access");
+                      navigate('/access');
                       setMobileMenuOpen(false);
                     }}
                   >
                     {t('nav.access')}
                   </button>
-                  <button 
+                  <button
                     className="text-left hover:text-primary transition-colors text-lg"
                     onClick={() => {
-                      navigate("/about");
+                      navigate('/about');
                       setMobileMenuOpen(false);
                     }}
                   >
                     {t('nav.about')}
                   </button>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="rounded-full mt-4"
                     onClick={() => {
                       setReservationOpen(true);
@@ -151,10 +175,10 @@ const Index = () => {
                 </nav>
               </SheetContent>
             </Sheet>
-            
+
             {/* Desktop Reserve Button */}
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="hidden md:flex rounded-full"
               onClick={() => setReservationOpen(true)}
             >
@@ -166,9 +190,9 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative h-[300px] md:h-[500px] overflow-hidden">
-        <img 
-          src={heroImage} 
-          alt="Hotel bedroom interior" 
+        <img
+          src={heroImage}
+          alt="Hotel bedroom interior"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
@@ -182,33 +206,41 @@ const Index = () => {
       <section className="bg-secondary py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <button 
+            <button
               className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
-              onClick={() => navigate("/accommodation")}
+              onClick={() => navigate('/accommodation')}
             >
               <Home className="w-12 h-12" />
-              <span className="text-xs font-medium uppercase">{t('nav.accommodation')}</span>
+              <span className="text-xs font-medium uppercase">
+                {t('nav.accommodation')}
+              </span>
             </button>
-            <button 
+            <button
               className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
-              onClick={() => navigate("/dining")}
+              onClick={() => navigate('/dining')}
             >
               <Coffee className="w-12 h-12" />
-              <span className="text-xs font-medium uppercase">{t('nav.dining')}</span>
+              <span className="text-xs font-medium uppercase">
+                {t('nav.dining')}
+              </span>
             </button>
-            <button 
+            <button
               className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
-              onClick={() => navigate("/access")}
+              onClick={() => navigate('/access')}
             >
               <Monitor className="w-12 h-12" />
-              <span className="text-xs font-medium uppercase">{t('nav.access')}</span>
+              <span className="text-xs font-medium uppercase">
+                {t('nav.access')}
+              </span>
             </button>
-            <button 
+            <button
               className="flex flex-col items-center gap-3 p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
-              onClick={() => navigate("/access")}
+              onClick={() => navigate('/access')}
             >
               <Users className="w-12 h-12" />
-              <span className="text-xs font-medium uppercase">{t('nav.access')}</span>
+              <span className="text-xs font-medium uppercase">
+                {t('nav.access')}
+              </span>
             </button>
           </div>
         </div>
@@ -217,14 +249,24 @@ const Index = () => {
       {/* Accommodation Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-12">{t('nav.accommodation')}</h2>
-          
+          <h2 className="text-2xl font-bold text-center mb-12">
+            {t('nav.accommodation')}
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
             <div className="aspect-video rounded-lg overflow-hidden">
-              <img src={accommodation1} alt="Luxury hotel bedroom in Tokyo" className="w-full h-full object-cover" />
+              <img
+                src={accommodation1}
+                alt="Luxury hotel bedroom in Tokyo"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="aspect-video rounded-lg overflow-hidden">
-              <img src={accommodation2} alt="Hotel lounge area" className="w-full h-full object-cover" />
+              <img
+                src={accommodation2}
+                alt="Hotel lounge area"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
@@ -237,8 +279,8 @@ const Index = () => {
                   {t('home.welcome_text')}
                 </span>
               </div>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="rounded-full whitespace-nowrap"
                 onClick={() => setReservationOpen(true)}
               >
@@ -252,19 +294,30 @@ const Index = () => {
       {/* Dining Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-8">{t('nav.dining')}</h2>
-          
+          <h2 className="text-2xl font-bold text-center mb-8">
+            {t('nav.dining')}
+          </h2>
+
           <p className="text-center max-w-2xl mx-auto mb-12">
-            We partner with skilled Japanese restaurants.<br />
+            We partner with skilled Japanese restaurants.
+            <br />
             Authentic dishes you can only experience in Tokyo.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
             <div className="aspect-video rounded-lg overflow-hidden">
-              <img src={dining1} alt="Authentic Japanese cuisine" className="w-full h-full object-cover" />
+              <img
+                src={dining1}
+                alt="Authentic Japanese cuisine"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="aspect-video rounded-lg overflow-hidden">
-              <img src={dining2} alt="Japanese restaurant interior" className="w-full h-full object-cover" />
+              <img
+                src={dining2}
+                alt="Japanese restaurant interior"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
@@ -277,10 +330,10 @@ const Index = () => {
                   {t('dining.description')}
                 </span>
               </div>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="rounded-full whitespace-nowrap"
-                onClick={() => setReservationOpen(true)}
+                onClick={() => navigate('/dining')}
               >
                 {t('home.reserve')}
               </Button>
@@ -292,7 +345,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 bg-muted">
         <div className="container mx-auto px-4 text-center">
-          <a 
+          <a
             href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
             target="_blank"
             rel="noopener noreferrer"
@@ -301,15 +354,15 @@ const Index = () => {
             <Instagram className="w-12 h-12" />
           </a>
           <div className="text-xs text-muted-foreground space-y-1">
-            <button 
-              onClick={() => navigate("/privacy")}
+            <button
+              onClick={() => navigate('/privacy')}
               className="hover:text-primary transition-colors"
             >
               {t('footer.privacy')}
             </button>
             <div>
-              <button 
-                onClick={() => navigate("/accessibility")}
+              <button
+                onClick={() => navigate('/accessibility')}
                 className="hover:text-primary transition-colors"
               >
                 {t('footer.accessibility')}
@@ -319,7 +372,10 @@ const Index = () => {
         </div>
       </footer>
 
-      <ReservationDialog open={reservationOpen} onOpenChange={setReservationOpen} />
+      <ReservationDialog
+        open={reservationOpen}
+        onOpenChange={setReservationOpen}
+      />
       <LocationDialog open={locationOpen} onOpenChange={setLocationOpen} />
       <LanguageDialog open={languageOpen} onOpenChange={setLanguageOpen} />
     </div>

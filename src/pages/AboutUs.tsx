@@ -6,6 +6,7 @@ import { ReservationDialog } from "@/components/ReservationDialog";
 import { LocationDialog } from "@/components/LocationDialog";
 import LanguageDialog from "@/components/LanguageDialog";
 import { useTranslation } from "react-i18next";
+import tokyoVibesLogo from "@/assets/tokyo-vibes-logo.png"; // <-- Logo import
 
 const AboutUs = () => {
   const [reservationOpen, setReservationOpen] = useState(false);
@@ -20,6 +21,7 @@ const AboutUs = () => {
       <header className="border-b">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
+            {/* Left side icons */}
             <div className="flex items-center gap-2">
               <Button 
                 variant="ghost" 
@@ -29,6 +31,7 @@ const AboutUs = () => {
               >
                 <Globe className="w-5 h-5" />
               </Button>
+
               <Button 
                 variant="ghost" 
                 size="icon" 
@@ -38,15 +41,9 @@ const AboutUs = () => {
                 <MapPin className="w-5 h-5" />
               </Button>
             </div>
-            
-            <nav className="hidden md:flex items-center gap-4 md:gap-8 text-xs md:text-sm">
-              <button 
-                className="hover:text-primary transition-colors"
-                onClick={() => navigate("/")}
-              >
-                {t('nav.home')}
-              </button>
-              <span className="text-muted-foreground">|</span>
+
+            {/* Center Navigation with Logo */}
+            <nav className="hidden md:flex items-center gap-6 text-xs md:text-sm">
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/accommodation")}
@@ -54,13 +51,30 @@ const AboutUs = () => {
                 {t('nav.accommodation')}
               </button>
               <span className="text-muted-foreground">|</span>
+
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/dining")}
               >
                 {t('nav.dining')}
               </button>
-              <span className="text-muted-foreground">|</span>
+
+              {/* LOGO IN THE MIDDLE */}
+              <div className="flex items-center gap-4 mx-4">
+                <span className="text-muted-foreground">|</span>
+                <button 
+                  className="hover:opacity-80 transition-opacity"
+                  onClick={() => navigate("/")}
+                >
+                  <img 
+                    src={tokyoVibesLogo}
+                    alt="Tokyo Vibes Logo"
+                    className="h-10 w-auto"
+                  />
+                </button>
+                <span className="text-muted-foreground">|</span>
+              </div>
+
               <button 
                 className="hover:text-primary transition-colors"
                 onClick={() => navigate("/access")}
@@ -68,9 +82,13 @@ const AboutUs = () => {
                 {t('nav.access')}
               </button>
               <span className="text-muted-foreground">|</span>
-              <button className="hover:text-primary transition-colors font-semibold">{t('nav.about')}</button>
+
+              <button className="hover:text-primary transition-colors">
+                {t('nav.about')}
+              </button>
             </nav>
-            
+
+            {/* Reservation Button */}
             <Button 
               variant="outline" 
               className="rounded-full"
@@ -92,23 +110,21 @@ const AboutUs = () => {
       {/* Team Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-12">
-            
-            {/* Mark Sasaki */}
-            <div className="space-y-4">
-              <div className="aspect-square rounded-lg overflow-hidden bg-muted">
+          <div className="flex gap-12 items-start">
+            {/* Mark */}
+            <div className="space-y-4 flex-1">
+              <div className="rounded-lg overflow-hidden bg-muted h-[32rem] w-[200%]">
                 <img 
                   src="/placeholder.svg" 
                   alt="Mark Sasaki"
                   className="w-full h-full object-cover"
                 />
               </div>
-              
               <div className="text-center space-y-3">
                 <div className="flex items-center justify-center gap-2">
                   <h2 className="text-2xl font-bold">{t('about_page.person_1_name')}</h2>
                   <a 
-                    href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
+                    href="https://www.instagram.com/risingfromzero/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:opacity-80 transition-opacity"
@@ -116,28 +132,19 @@ const AboutUs = () => {
                     <Instagram className="w-6 h-6" />
                   </a>
                 </div>
-                
                 <p className="text-sm leading-relaxed whitespace-pre-line">
                   {t('about_page.person_1_bio')}
                 </p>
               </div>
             </div>
 
-            {/* Yasuhiko Sasaki */}
-            <div className="space-y-4">
-              <div className="aspect-square rounded-lg overflow-hidden bg-muted">
-                <img 
-                  src="/placeholder.svg" 
-                  alt="Yasuhiko Sasaki"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
+            {/* Yasuhiko */}
+           <div className="space-y-4 flex-1 mt-[33rem]">
               <div className="text-center space-y-3">
                 <div className="flex items-center justify-center gap-2">
                   <h2 className="text-2xl font-bold">{t('about_page.person_2_name')}</h2>
                   <a 
-                    href="https://www.instagram.com/tokyo__vibes?utm_source=ig_web_button_share_sheet&igsh=bGh4M3V3endiZzJw"
+                    href="https://www.instagram.com/yasuhiko96?igsh=MWxnMm9uNG5tZW1lMg=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:opacity-80 transition-opacity"
@@ -145,13 +152,11 @@ const AboutUs = () => {
                     <Instagram className="w-6 h-6" />
                   </a>
                 </div>
-                
                 <p className="text-sm leading-relaxed whitespace-pre-line">
                   {t('about_page.person_2_bio')}
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -167,6 +172,7 @@ const AboutUs = () => {
           >
             <Instagram className="w-12 h-12" />
           </a>
+
           <div className="text-xs text-muted-foreground space-y-1">
             <button 
               onClick={() => navigate("/privacy")}
